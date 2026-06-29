@@ -5,18 +5,19 @@ import { About } from './pages/About'
 
 function App() {
 
-  const [view, setView] = userState("home");
+  const [view, setView] = useState("home");
 
   return (
     <>
       <div>
         <nav>
-          <button></button>
-          <button></button>
+          <button onClick={()=> setView("home")}>Home</button>
+          <button onClick={()=> setView("about")}>About</button>
         </nav>
 
         <div>
-          {view === "home"? <Home/> : <About/>}
+          {view === "home" && <Home/>}
+          {view === "about" && <About/>}
         </div>
 
       </div>
