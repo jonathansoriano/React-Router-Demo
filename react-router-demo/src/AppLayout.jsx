@@ -11,6 +11,7 @@ function AppLayout() {
         <nav>
           {/* Replaced out Buttons with NavLink tags to navigate our Pages*/}
           <NavLink to="/">Home</NavLink>
+          {` | `}
           <NavLink to="/about">About</NavLink>
         </nav>
 
