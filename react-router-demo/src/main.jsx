@@ -7,6 +7,7 @@ import { About } from './pages/About.jsx';
 import { Events } from './pages/Events.jsx';
 import { EventDetails } from './pages/EventDetails.jsx';
 import { Settings } from './pages/Settings.jsx';
+import { NotFound } from './pages/NotFound.jsx';
 
 //I needed to change the name of "App.jsx" to "AppLayout.jsx"
 //I also needed to change the name I used to import that component from
@@ -21,6 +22,7 @@ const router = createBrowserRouter([
       {path: `/events`, element: <Events/>},
       {path: `/event/details`, element: <EventDetails/>},
       {path: `/settings`, element: <Settings/>},
+      {path: `*`, element: <NotFound/>},
     ]
   },
 ]);
