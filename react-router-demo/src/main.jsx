@@ -19,6 +19,8 @@ const router = createBrowserRouter([
   },
 ]);
 
+//"router" being past to the router property is what we created in line 12,
+//where we defined the paths for each page.
 createRoot(document.getElementById('root')).render(
   <RouterProvider router={router}/>
 );
