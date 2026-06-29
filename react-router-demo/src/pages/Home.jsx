@@ -1,9 +1,9 @@
-export function Home(){
+export function Home() {
 
-    return(
+    return (
         <>
-        <h1>Welcome to the Home Page</h1>
-        <p>This the main landing page of the application</p>
+            <h1>Welcome to the Home Page</h1>
+            <p>This the main landing page of the application</p>
         </>
     );
 }
