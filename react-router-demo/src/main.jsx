@@ -4,6 +4,9 @@ import './index.css'
 import AppLayout from './AppLayout.jsx'
 import { Home } from './pages/Home.jsx';
 import { About } from './pages/About.jsx';
+import { Events } from './pages/Events.jsx';
+import { EventDetails } from './pages/EventDetails.jsx';
+import { Settings } from './pages/Settings.jsx';
 
 //I needed to change the name of "App.jsx" to "AppLayout.jsx"
 //I also needed to change the name I used to import that component from
@@ -15,6 +18,9 @@ const router = createBrowserRouter([
     children: [
       {path: `/`, element: <Home/>},
       {path: `/about`, element: <About/>},
+      {path: `/events`, element: <Events/>},
+      {path: `/events/details`, element: <EventDetails/>},
+      {path: `/settings`, element: <Settings/>}
     ]
   },
 ]);
