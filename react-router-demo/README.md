@@ -8,7 +8,7 @@ To start the application, you need to make sure you're in the React app director
 
 1. Open your terminal and navigate to the app folder:
    ```bash
-   cd /Users/jonsorianosanjuan/Web Development/Web Game Dev Projects/React-Router-Demo/react-router-demo
+   cd ./react-router-demo
    ```
 
 2. Install the project dependencies:
