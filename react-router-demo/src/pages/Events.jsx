@@ -1,9 +1,11 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useSearchParams } from "react-router-dom";
 import { campusEvent } from "../data/events";
-import { useState } from "react";
+
 export function Events() {
-    const [query, setQuery] = useState("");
-    const [tag, setTag] = useState(undefined);
+    //useSearchParams hook  from react-router-dom
+    const [searchParams, setSearchParams] = useSearchParams("");
+    const query = (searchParams.get(`query`) || '').toLowerCase();
+    const tag = searchParams.get(`tag`)|| '';
 
     //What the hell is this filter? 
     // Filter events by search query AND tag, independently.
@@ -18,8 +20,8 @@ export function Events() {
     return (
         <section>
             <h1>Events Page</h1>
-            <input type="text" onChange={e => setQuery(e.target.value)} value={query} placeholder="Type a query"/>
-            <select value={tag} onChange={e => setTag(e.target.value)}>
+            <input type="text" onChange={e => setSearchParams({query: e.target.value, tag})} value={query} placeholder="Type a query"/>
+            <select value={tag} onChange={e => setSearchParams({tag: e.target.value, query})}>
                 <option value=''>all</option>
                 <option value="innovation">innovation</option>
                 <option value="showcase">showcase</option>
