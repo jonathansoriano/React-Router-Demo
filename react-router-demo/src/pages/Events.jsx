@@ -48,13 +48,14 @@ export function Events() {
                 <option value="showcase">showcase</option>
                 <option value="networking">networking</option>
             </select>
+            {/*2. To point to the EventDetails component, we need to set the "to" property
+            to how the route pattern is set in main.jsx, which tells that we have to add a param after 
+            "events/" . */}
             <ul>
                 {filteredList.map((e) => (
-                <li key={e.id}>
-                    {" "}
-                    <NavLink to="/event/details">{e.name}</NavLink>
-                </li>
-                
+                    <li key={e.id}>
+                        <NavLink to={`/events/${e.id}`}>{e.name}</NavLink>
+                    </li>
                 ))}
             </ul>
         </section>

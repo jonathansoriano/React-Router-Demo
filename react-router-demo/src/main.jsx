@@ -9,10 +9,14 @@ import { EventDetails } from './pages/EventDetails.jsx';
 import { Settings } from './pages/Settings.jsx';
 import { NotFound } from './pages/NotFound.jsx';
 
-//I needed to change the name of "App.jsx" to "AppLayout.jsx"
+//FILE NAME CHANGE: I needed to change the name of "App.jsx" to "AppLayout.jsx"
 //I also needed to change the name I used to import that component from
 //import App from './App.jsx' to import AppLayout from './AppLayout.jsx'. 
 //Otherwise I would get a Uncaught ReferenceError: AppLayout is not defined
+
+
+
+//Here we are creating our route patterns to direct to particular components
 const router = createBrowserRouter([
   {
     element: <AppLayout/>,
@@ -20,14 +24,16 @@ const router = createBrowserRouter([
       {path: `/`, element: <Home/>},
       {path: `/about`, element: <About/>},
       {path: `/events`, element: <Events/>},
-      {path: `/event/details`, element: <EventDetails/>},
+      //1. Changed route from "events/details" to "/events/:id", so anything after events/ will route
+      // to the Event details page.
+      {path: `/events/:id`, element: <EventDetails/>},
       {path: `/settings`, element: <Settings/>},
       {path: `*`, element: <NotFound/>},
     ]
   },
 ]);
 
-//"router" being past to the router property is what we created in line 12,
+//"router" being passed to the router property is what we created in line 22,
 //where we defined the paths for each page.
 createRoot(document.getElementById('root')).render(
   <RouterProvider router={router}/>
