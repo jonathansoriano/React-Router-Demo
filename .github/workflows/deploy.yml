@@ -5,7 +5,8 @@ on:
     branches: ['main']
 
 permissions:
-  contents: read
+  # Needed for GitHub Pages site creation during deployment
+  contents: write
   pages: write
   id-token: write
 
