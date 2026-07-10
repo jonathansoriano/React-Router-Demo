@@ -24,11 +24,14 @@ jobs:
         with:
           node-version: lts/*
           cache: 'npm'
+          cache-dependency-path: react-router-demo/package-lock.json
 
       - name: Install dependencies
+        working-directory: ./react-router-demo
         run: npm ci
 
       - name: Build App
+        working-directory: ./react-router-demo
         run: npm run build
 
       - name: Setup Pages
@@ -37,7 +40,7 @@ jobs:
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v5
         with:
-          path: './dist'
+          path: './react-router-demo/dist'
 
       - name: Deploy to GH Pages
         id: deployment
