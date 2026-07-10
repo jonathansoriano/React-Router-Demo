@@ -8,6 +8,9 @@ import { Events } from './pages/Events.jsx';
 import { EventDetails } from './pages/EventDetails.jsx';
 import { Settings } from './pages/Settings.jsx';
 import { NotFound } from './pages/NotFound.jsx';
+import { LoginPage } from './pages/LoginPage.jsx';
+import { RequireAuth } from './auth/RequireAuth.jsx';
+import { AuthProvider } from './auth/AuthProvider.jsx';
 
 //FILE NAME CHANGE: I needed to change the name of "App.jsx" to "AppLayout.jsx"
 //I also needed to change the name I used to import that component from
@@ -22,12 +25,19 @@ const router = createBrowserRouter([
     element: <AppLayout/>,
     children: [
       {path: `/`, element: <Home/>},
+      {path: `/login`, element: <LoginPage/>},
       {path: `/about`, element: <About/>},
       {path: `/events`, element: <Events/>},
       //1. Changed route from "events/details" to "/events/:id", so anything after events/ will route
       // to the Event details page.
       {path: `/events/:id`, element: <EventDetails/>},
-      {path: `/settings`, element: <Settings/>},
+      {
+        path: `/settings`,
+        element: (
+          <RequireAuth>
+            <Settings/>
+          </RequireAuth>)
+      },
       {path: `*`, element: <NotFound/>},
     ]
   },
@@ -36,5 +46,7 @@ const router = createBrowserRouter([
 //"router" being passed to the router property is what we created in line 22,
 //where we defined the paths for each page.
 createRoot(document.getElementById('root')).render(
-  <RouterProvider router={router}/>
+  <AuthProvider>
+    <RouterProvider router={router}/>
+  </AuthProvider>
 );
